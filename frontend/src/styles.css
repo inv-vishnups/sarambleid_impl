@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+
+.main {
+  @apply w-screen h-screen bg-slate-200 text-slate-700 flex justify-center items-center;
+}
+
+.container {
+  @apply w-1/3 p-10 border rounded-md border-slate-400 shadow-xl bg-gray-100;
+}
+
+.btn-container {
+  @apply w-full;
+}
+
+.btn {
+  @apply  rounded-xl h-18 text-xl font-medium  transition-colors duration-200 mb-4 last:mb-0;
+}
+
+.sramble-login-btn {
+  @apply bg-[rgb(255,208,0)] w-full text-[rgb(49,49,49)]  hover:bg-yellow-500;
+}
+
+.signup-btn {
+  @apply bg-blue-200  hover:bg-blue-300 flex justify-center items-center;
+}
+
+.form-group {
+  @apply w-full mb-2 last:mb-0;
+}
+
+label {
+  @apply block;
+}
+
+input[type="text"] {
+  @apply px-2 py-2 w-full  border rounded outline-0 border-slate-400 bg-gray-50;
+}
+
+.form-group-btn { 
+ @apply flex justify-end mt-4
+}
+
+.btn-login {
+  @apply flex justify-center items-center h-15 px-8  mr-4 hover:bg-gray-100;
+}
+
+.btn-save { 
+  @apply h-15 px-8 bg-green-400 hover:bg-green-500; 
+}
+
+.error { 
+  @apply text-orange-700;
+}

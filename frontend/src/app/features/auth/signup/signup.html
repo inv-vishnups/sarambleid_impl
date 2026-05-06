@@ -1,0 +1,71 @@
+<div>
+  <form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        formControlName="firstName"
+        name="firstName"
+        id="firstName"
+        placeholder="First Name "
+      />
+      @if (firstName?.touched && firstName?.invalid) {
+        <small class="error">
+          @if (firstName?.errors?.['required']) {
+            First name is required
+          }
+          @if (firstName?.errors?.['minlength']) {
+            Minimum 3 characters required
+          }
+          @if (lastName?.errors?.['maxlength']) {
+            Maximum 100 characters allowed
+          }
+        </small>
+      }
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        formControlName="lastName"
+        name="lastName"
+        id="lastName"
+        placeholder="Last Name"
+      />
+      @if (lastName?.touched && lastName?.invalid) {
+        <small class="error">
+          @if (lastName?.errors?.['required']) {
+            Last name is required
+          }
+
+          @if (lastName?.errors?.['minlength']) {
+            Minimum 3 characters required
+          }
+
+          @if (lastName?.errors?.['maxlength']) {
+            Maximum 100 characters allowed
+          }
+        </small>
+      }
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" formControlName="email" name="email" id="email" placeholder="Email" />
+      @if (email?.touched && email?.invalid) {
+        <small class="error">
+          @if (email?.errors?.['required']) {
+            Email is required
+          }
+
+          @if (email?.errors?.['email']) {
+            Invalid email address
+          }
+        </small>
+      }
+    </div>
+    <div class="form-group-btn">
+      <a routerLink="/login" class="btn btn-login">Login</a>
+      <button class="btn btn-save" type="submit">Save</button>
+    </div>
+  </form>
+</div>
