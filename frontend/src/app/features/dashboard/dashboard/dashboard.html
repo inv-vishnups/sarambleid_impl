@@ -6,24 +6,15 @@
     <table class="custom-table">
       <tbody>
         <tr>
-          <td>First Name:</td>
-          <td>Test Name</td>
-        </tr>
-        <tr>
-          <td>Last Name</td>
-          <td>Test NAme</td>
+          <td>Name</td>
+          <td>{{ state?.name }}</td>
         </tr>
         <tr>
           <td>Email</td>
-          <td>Email sample</td>
-        </tr>
-        <tr>
-          <td>Scramble ID</td>
-          <td>Test ID</td>
+          <td>{{ state?.email }}</td>
         </tr>
       </tbody>
     </table>
-    
   </div>
   <div class="card-footer">
     <a routerLink="/login">Sign out!</a>
