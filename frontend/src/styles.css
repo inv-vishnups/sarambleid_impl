@@ -15,15 +15,15 @@
 }
 
 .btn {
-  @apply  rounded-xl h-18 text-xl font-medium  transition-colors duration-200 mb-4 last:mb-0;
+  @apply rounded-xl h-18 text-xl font-medium  transition-colors duration-200 mb-4 last:mb-0;
 }
 
 .sramble-login-btn {
-  @apply bg-[rgb(255,208,0)] w-full text-[rgb(49,49,49)]  hover:bg-yellow-500;
+  @apply bg-[rgb(255,208,0)] w-full text-[rgb(49,49,49)]  hover:bg-yellow-500 cursor-pointer ;
 }
 
 .signup-btn {
-  @apply bg-blue-200  hover:bg-blue-300 flex justify-center items-center;
+  @apply   hover:bg-blue-200 flex justify-center items-center;
 }
 
 .form-group {
@@ -34,22 +34,58 @@ label {
   @apply block;
 }
 
-input[type="text"] {
+input[type='text'] {
   @apply px-2 py-2 w-full  border rounded outline-0 border-slate-400 bg-gray-50;
 }
 
-.form-group-btn { 
- @apply flex justify-end mt-4
+.form-group-btn {
+  @apply flex justify-end mt-4;
 }
 
 .btn-login {
   @apply flex justify-center items-center h-15 px-8  mr-4 hover:bg-gray-100;
 }
 
-.btn-save { 
-  @apply h-15 px-8 bg-green-400 hover:bg-green-500; 
+.btn-save {
+  @apply h-15 px-8 bg-green-400 hover:bg-green-500;
 }
 
-.error { 
+.error {
   @apply text-orange-700;
+}
+
+.card .card-title {
+  @apply border-b border-slate-300 mb-4 pb-2;
+}
+
+.card .card-title h3 {
+  @apply text-green-700 text-xl font-bold;
+}
+
+.table-container {
+  @apply overflow-x-auto;
+}
+
+.custom-table {
+  @apply w-full border-collapse border border-gray-300;
+}
+
+.custom-table th {
+  @apply p-4 border border-gray-300 bg-gray-100 text-left;
+}
+
+.custom-table td {
+  @apply p-4 border border-gray-300;
+}
+
+.custom-table tbody tr {
+  @apply hover:bg-gray-50;
+}
+
+.card-footer {
+  @apply flex justify-end w-full  py-6;
+}
+
+.card-footer a {
+  @apply  px-8 py-6 rounded-lg font-semibold hover:bg-blue-200 transition-colors duration-200;
 }

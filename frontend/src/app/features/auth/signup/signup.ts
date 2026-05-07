@@ -44,11 +44,10 @@ export class Signup {
 
     this.authService.signup(signupData).subscribe({
       next: (response) => {
-        (alert('User Created'), console.log(response));
+        alert('User Created');
       },
       error: (error) => {
         alert('Failed');
-        console.log(error);
       },
     });
   }

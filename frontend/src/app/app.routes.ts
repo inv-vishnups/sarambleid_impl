@@ -21,4 +21,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/dashboard/dashboard/dashboard').then((m) => m.Dashboard),
   },
+  {
+    path: 'callback',
+    loadComponent: () => import('./features/auth/callback/callback').then((m) => m.Callback),
+  },
 ];
