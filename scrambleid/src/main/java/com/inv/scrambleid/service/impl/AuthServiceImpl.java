@@ -5,8 +5,12 @@ import com.inv.scrambleid.forms.LoginRequest;
 import com.inv.scrambleid.forms.RegisterRequest;
 import com.inv.scrambleid.repository.UserRepository;
 import com.inv.scrambleid.security.JwtUtil;
+import com.inv.scrambleid.security.ScrambleIdTokenVerifier;
 import com.inv.scrambleid.service.AuthService;
+import com.inv.scrambleid.service.ScrambleAuthService;
 import com.inv.scrambleid.service.ScrambleUserService;
+import com.inv.scrambleid.view.TokenResponse;
+import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -20,6 +24,10 @@ public class AuthServiceImpl implements AuthService {
     private final JwtUtil jwtUtil;
 
     private final ScrambleUserService scrambleUserService;
+
+    private final ScrambleAuthService scrambleAuthService;
+
+    private final ScrambleIdTokenVerifier scrambleIdTokenVerifier;
 
     @Override
     public String register(RegisterRequest request) {
@@ -55,12 +63,24 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public String login(LoginRequest request) {
 
-        User user = userRepository.findByEmail(request.email())
+        TokenResponse tokenResponse = scrambleAuthService
+                .getAccessTokenByAuthorizationCode(request.code())
+                .block();
+
+        if (tokenResponse == null) {
+            throw new RuntimeException("Token exchange returned no response");
+        }
+
+        Claims claims = scrambleIdTokenVerifier.parseAndVerify(tokenResponse.getIdToken());
+
+        String email = claims.get("email", String.class);
+        if (email == null || email.isBlank()) {
+            email = claims.getSubject();
+        }
+        User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        if (!passwordEncoder.matches(request.password(), user.getPassword())) {
-            throw new RuntimeException("Invalid credentials");
-        }
+        System.out.println("Email --- "+email);
 
         return jwtUtil.generateToken(user.getEmail());
     }
