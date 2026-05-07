@@ -9,6 +9,7 @@ import com.inv.scrambleid.security.ScrambleIdTokenVerifier;
 import com.inv.scrambleid.service.AuthService;
 import com.inv.scrambleid.service.ScrambleAuthService;
 import com.inv.scrambleid.service.ScrambleUserService;
+import com.inv.scrambleid.view.LoginResponse;
 import com.inv.scrambleid.view.TokenResponse;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
@@ -61,7 +62,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String login(LoginRequest request) {
+    public LoginResponse login(LoginRequest request) {
 
         TokenResponse tokenResponse = scrambleAuthService
                 .getAccessTokenByAuthorizationCode(request.code())
@@ -82,6 +83,8 @@ public class AuthServiceImpl implements AuthService {
 
         System.out.println("Email --- "+email);
 
-        return jwtUtil.generateToken(user.getEmail());
+        String token = jwtUtil.generateToken(user.getEmail());
+
+        return new LoginResponse(user.getUserName(), user.getEmail(), token);
     }
 }
