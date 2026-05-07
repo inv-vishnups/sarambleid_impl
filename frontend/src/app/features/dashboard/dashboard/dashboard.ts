@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { SigninResponse } from '../../../core/models/signin_response.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,4 +8,10 @@ import { RouterLink } from "@angular/router";
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
-export class Dashboard {}
+export class Dashboard implements OnInit {
+  state: SigninResponse | null = null;
+
+  ngOnInit(): void {
+    this.state = history.state.user;
+  }
+}
