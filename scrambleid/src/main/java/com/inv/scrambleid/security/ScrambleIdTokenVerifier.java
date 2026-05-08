@@ -28,7 +28,7 @@ public class ScrambleIdTokenVerifier {
     @Value("${scramble.oidc.issuer}")
     private String expectedIssuer;
 
-    @Value("${application.client-id}")
+    @Value("${scramble.client-id}")
     private String expectedAudience;
 
     public Claims parseAndVerify(String idToken) {
