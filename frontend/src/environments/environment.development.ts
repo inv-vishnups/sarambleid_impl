@@ -5,7 +5,7 @@ export const environment = {
 
   // ? ScrambleID uri, token
   scrambleidBaseUrl: 'https://prod.scrambleid.com/oidc/inno/authorize?response_type=code',
-  clientId: 'b1105227-9fe8-4f90-89d7-fb0eb79c0621',
+  clientId: 'e500698f-2202-4151-bc1c-d5ac784c6a71',
   scope: 'openid',
   redirectUri: 'http://localhost:4200/callback',
 };
