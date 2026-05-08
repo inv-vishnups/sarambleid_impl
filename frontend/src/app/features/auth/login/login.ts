@@ -12,10 +12,11 @@ export class Login {
   private readonly baseUrl = environment.scrambleidBaseUrl;
   private readonly client_id = environment.clientId;
   private readonly redirect_uri = environment.redirectUri;
+  private readonly scope = environment.scope;
 
   loginWithScramble() {
     const url =
-      this.baseUrl + '&client_id=' + this.client_id + '&redirect_uri=' + this.redirect_uri;
+      this.baseUrl + '&client_id=' + this.client_id + '&scope='+ this.scope + '&redirect_uri=' + this.redirect_uri ;
 
     window.location.href = url;
   }

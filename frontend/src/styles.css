@@ -2,6 +2,16 @@
 
 @import 'tailwindcss';
 
+@theme {
+  --font-ibmplex:
+    'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+body {
+  @apply font-ibmplex antialiased md:subpixel-antialiased;
+}
+
 .main {
   @apply w-screen h-screen bg-slate-200 text-slate-700 flex justify-center items-center;
 }
@@ -19,11 +29,11 @@
 }
 
 .sramble-login-btn {
-  @apply bg-[rgb(255,208,0)] w-full text-[rgb(49,49,49)]  hover:bg-yellow-500 cursor-pointer ;
+  @apply bg-[rgb(255,208,0)] w-full text-[rgb(49,49,49)]  hover:bg-yellow-500 cursor-pointer;
 }
 
 .signup-btn {
-  @apply   hover:bg-blue-200 flex justify-center items-center;
+  @apply hover:bg-blue-200 flex justify-center items-center;
 }
 
 .form-group {
@@ -43,7 +53,7 @@ input[type='text'] {
 }
 
 .btn-login {
-  @apply flex justify-center items-center h-15 px-8  mr-4 hover:bg-gray-100;
+  @apply flex justify-center items-center h-15 px-8  mr-4 hover:bg-blue-200;
 }
 
 .btn-save {
@@ -87,5 +97,5 @@ input[type='text'] {
 }
 
 .card-footer a {
-  @apply  px-8 py-6 rounded-lg font-semibold hover:bg-blue-200 transition-colors duration-200;
+  @apply px-8 py-6 rounded-lg font-semibold hover:bg-blue-200 transition-colors duration-200;
 }
