@@ -53,11 +53,11 @@ input[type='text'] {
 }
 
 .btn-login {
-  @apply flex justify-center items-center h-15 px-8  mr-4 hover:bg-blue-200;
+  @apply flex justify-center items-center h-15 px-8  mr-4 last:mr-0 hover:bg-blue-200;
 }
 
 .btn-save {
-  @apply h-15 px-8 bg-green-400 hover:bg-green-500;
+  @apply h-15 px-8 bg-green-400 hover:bg-green-500 cursor-pointer;
 }
 
 .error {
@@ -69,8 +69,18 @@ input[type='text'] {
 }
 
 .card .card-title h3 {
-  @apply text-green-700 text-xl font-bold;
+  @apply text-xl font-bold;
 }
+
+
+.card .card-title.success h3 {
+  @apply text-green-700;
+}
+
+.card .card-title.failed h3 {
+  @apply text-orange-700;
+}
+
 
 .table-container {
   @apply overflow-x-auto;
@@ -93,7 +103,7 @@ input[type='text'] {
 }
 
 .card-footer {
-  @apply flex justify-end w-full  py-6;
+  @apply flex justify-end w-full  pt-4;
 }
 
 .card-footer a {

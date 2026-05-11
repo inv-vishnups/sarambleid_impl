@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { email } from '@angular/forms/signals';
 import { AuthService } from '../../../core/services/auth-service';
@@ -26,7 +26,10 @@ export class Signup {
     email: new FormControl('', [Validators.required, Validators.email]),
   });
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) {}
 
   signup() {
     if (this.signupForm.invalid) {
@@ -44,10 +47,10 @@ export class Signup {
 
     this.authService.signup(signupData).subscribe({
       next: (response) => {
-        alert('User Created');
+        this.router.navigate(['/success']);
       },
       error: (error) => {
-        alert('Failed');
+        this.router.navigate(['/failed']);
       },
     });
   }
