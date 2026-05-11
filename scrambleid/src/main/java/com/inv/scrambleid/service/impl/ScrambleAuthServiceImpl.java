@@ -42,8 +42,8 @@ public class ScrambleAuthServiceImpl implements ScrambleAuthService {
 
         ScrambleTokenRequest request = new ScrambleTokenRequest(
                 "client_credentials",
-                clientId,
-                clientSecret
+                "ffbccdf8-8479-4ebd-8af1-78b4eb88f545",
+                "4c844db4ccdf0b429e3e7e982558c7dd5c3c9da5f3b8c8579ffbc7022feeee84"
         );
 
         ScrambleTokenResponse response = webClient.post()
@@ -67,9 +67,9 @@ public class ScrambleAuthServiceImpl implements ScrambleAuthService {
         MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
         formData.add("grant_type", "authorization_code");
         formData.add("code", authorizationCode);
-        formData.add("redirect_uri", "https://www.google.com");
-        formData.add("client_id", "01485052-e818-443d-bc3a-0c993f94d89d");
-        formData.add("client_secret", "ad83c22a916ff24bc70cb08b1bf614549c3c52a92b5ed3fc452c09ae74b8bb6c");
+        formData.add("redirect_uri", "http://localhost:4200/callback");
+        formData.add("client_id", "e500698f-2202-4151-bc1c-d5ac784c6a71");
+        formData.add("client_secret", "82cdef5fd0ee9317e7eb8fdab09f359986219db6cdd155688fce287d2f03e743");
 
         return webClient.post()
                 .uri("https://prod.scrambleid.com/oidc/inno/token")
